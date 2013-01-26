@@ -1,0 +1,41 @@
+package beautifulStringTest;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class LeetFile {
+  public static void main(String[] args) throws IOException {
+		String fileName = "c:\\T\\R.txt";
+
+		String fileNameW = "c:\\T\\W.txt";
+
+		String returnValue = "";
+		FileReader file = null;
+		String line = "";
+
+		PrintWriter out = new PrintWriter(new FileWriter(fileNameW));
+		int i = 1;
+		int beauty = 0 ;
+		try {
+			file = new FileReader(fileName);
+			BufferedReader reader = new BufferedReader(file);
+
+			while ((line = reader.readLine()) != null) {
+				returnValue += line + "\n";
+				beauty = line.length();
+				out.println("Case #" + i + ": "+beauty);
+				i++;
+			}
+			System.out.println(returnValue);
+
+		} finally {
+
+			file.close();
+			out.close();
+		}
+	}
+
+}
